@@ -81,16 +81,22 @@ class Game
     end
     @board.display
   end
-
+  
   def play
-    until over?
-      turn
+    @board.reset!
+    while self.over? == false
+      self.turn
     end
-
-    if won?
-      puts "Congratulations #{winner}!"
-    else draw?
-      puts "Cat's Game!"
+    if self.won?
+      puts "Congratulations #{self.winner}!"
+      if "X" == self.winner
+        @player_1.win_count = @player_1.win_count + 1
+      else
+        @player_2.win_count = @player_2.win_count + 1
+      end
+    elsif self.draw?
+      puts "Cats Game!"
+      #@@draw_count += 1
     end
   end
 
