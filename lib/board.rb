@@ -55,7 +55,6 @@ class Board
   end
 
   def update(index, player)
-    #binding.pry
     @player = "X"
     index = index.to_i
     @cells[index-1]=@player
